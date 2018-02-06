@@ -1,0 +1,25 @@
+{
+  "name": "insac-seed",
+  "version": "1.0.0",
+  "description": "Inserta registros en la base de datos, utilizando Sequelize.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waquispe/insac-seed.git"
+  },
+  "keywords": [
+    "insac",
+    "seed",
+    "web",
+    "service"
+  ],
+  "author": "Wilmer Alex Quispe Quispe <q.wilmer.alex@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waquispe/insac-seed/issues"
+  },
+  "homepage": "https://github.com/waquispe/insac-seed#readme"
+}
