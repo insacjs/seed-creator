@@ -1,1 +1,1 @@
-module.exports = require('./lib/insac-seed')
+module.exports = require('./lib/seed-creator')

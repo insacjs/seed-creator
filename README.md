@@ -1,4 +1,4 @@
-# Insac Seed
+# Seed Creator
 
 Inserta registros en la base de datos, utilizando Sequelize.
 
@@ -6,6 +6,7 @@ Inserta registros en la base de datos, utilizando Sequelize.
 
 - Inserta una **lista** de registros.
 - Soporta registros **anidados**.
+- Soporta modelos definidos con **esquemas**.
 - Las claves primarias son opcionales siempre y cuando sean **autoincrementables**.
 - La inserción es **secuencial**, por lo tanto, al insertar el segundo
 segistro es posible enviar los resultados del primer registro.
@@ -14,7 +15,7 @@ segistro es posible enviar los resultados del primer registro.
 
 Para instalar sobre un proyecto, ejecutar el siguiente comando:
 
-$ `sudo npm install --save insac-seed`
+$ `npm install --save seed-creator`
 
 # Ejemplos
 
@@ -23,9 +24,9 @@ $ `sudo npm install --save insac-seed`
 Inserta datos anidados.
 
 ``` js
-const { Seed } = require('insac-seed')
+const Seed = require('seed-creator')
 
-Seed.create(sequelize, 'libro', [
+Seed.create(sequelize.models.libro, [
   {
     titulo: 'El gato negro',
     precio: 11.99,

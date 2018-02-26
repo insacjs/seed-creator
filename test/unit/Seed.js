@@ -1,7 +1,7 @@
 /* global describe it expect */
 const Sequelize = require('sequelize')
 const path = require('path')
-const { Seed } = require(global.LIB)
+const Seed = require(global.LIB)
 
 const DB_CONFIG = {
   username: process.env.DB_USER,
@@ -36,7 +36,7 @@ describe('\n - Clase: Seed\n', () => {
       sequelize.models.libro.associate(sequelize.models)
 
       sequelize.sync({ force: true }).then(result => {
-        Seed.create(sequelize, 'libro', [
+        Seed.create(sequelize.models.libro, [
           {
             titulo: 'El gato negro',
             precio: 11.99,
