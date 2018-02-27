@@ -12,9 +12,9 @@
         "coverage": { "enable": true },
         "typeInference": { "enable": true },
         "brand": {
-          "title": "Insac Seed",
+          "title": "Seed Creator",
           "description": "Inserta registros en la base de datos, utilizando Sequelize.",
-          "repository": "https://github.com/waquispe/insac-seed"
+          "repository": "https://github.com/waquispe/seed-creator"
         }
       }
     }

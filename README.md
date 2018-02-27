@@ -28,17 +28,17 @@ const Seed = require('seed-creator')
 
 Seed.create(sequelize.models.libro, [
   {
-    titulo: 'El gato negro',
-    precio: 11.99,
-    autor: {
-      id_autor: 10,
-      nombre: 'Edgar Allan Poe'
+    titulo : 'El gato negro',
+    precio : 11.99,
+    autor  : {
+      id_autor : 10,
+      nombre   : 'Edgar Allan Poe'
     }
   },
   {
-    titulo: 'El cuervo',
-    precio: 15.99,
-    fid_autor: 10
+    titulo    : 'El cuervo',
+    precio    : 15.99,
+    fid_autor : 10
   }
 ])
 ```
