@@ -4,17 +4,17 @@ const path = require('path')
 const Seed = require(global.LIB)
 
 const DB_CONFIG = {
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  params: {
-    dialect: 'postgres',
-    lang: 'es',
-    logging: false,
-    define: {
-      underscored: true,
-      freezeTableName: true,
-      timestamps: false
+  username : process.env.DB_USER,
+  password : process.env.DB_PASS,
+  database : process.env.DB_NAME,
+  params   : {
+    dialect : 'postgres',
+    lang    : 'es',
+    logging : false,
+    define  : {
+      underscored     : true,
+      freezeTableName : true,
+      timestamps      : false
     },
     operatorsAliases: false
   }
@@ -38,17 +38,17 @@ describe('\n - Clase: Seed\n', () => {
       sequelize.sync({ force: true }).then(result => {
         Seed.create(sequelize.models.libro, [
           {
-            titulo: 'El gato negro',
-            precio: 11.99,
-            autor: {
-              id_autor: 10,
-              nombre: 'Edgar Allan Poe'
+            titulo : 'El gato negro',
+            precio : 11.99,
+            autor  : {
+              id_autor : 10,
+              nombre   : 'Edgar Allan Poe'
             }
           },
           {
-            titulo: 'El cuervo',
-            precio: 15.99,
-            fid_autor: 10
+            titulo    : 'El cuervo',
+            precio    : 15.99,
+            fid_autor : 10
           }
         ]).then(result => {
           expect(true).to.equal(true)
