@@ -1,7 +1,7 @@
 /* global describe it expect */
 const Sequelize = require('sequelize')
-const path = require('path')
-const Seed = require(global.LIB)
+const path      = require('path')
+const Seed      = require(global.LIB)
 
 const DB_CONFIG = {
   username : process.env.DB_USER,

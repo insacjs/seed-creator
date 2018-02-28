@@ -9,7 +9,7 @@ Inserta registros en la base de datos, utilizando Sequelize.
 - Soporta modelos definidos con **esquemas**.
 - Las claves primarias son opcionales siempre y cuando sean **autoincrementables**.
 - La inserción es **secuencial**, por lo tanto, al insertar el segundo
-segistro es posible enviar los resultados del primer registro.
+  segistro es posible enviar los resultados del primer registro.
 
 # Instalación
 

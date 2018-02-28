@@ -1,6 +1,6 @@
 {
   "name": "seed-creator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Inserta registros en la base de datos, utilizando Sequelize.",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "url": "git+https://github.com/waquispe/seed-creator.git"
   },
   "keywords": [
+    "insac",
     "sequelize",
     "seed",
     "web",
