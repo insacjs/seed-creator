@@ -1,11 +1,14 @@
 # Seed Creator
 
-Inserta registros en la base de datos, utilizando Sequelize.
+Cuando se crea una nueva base de datos, casi siempre es necesario insertar los registros iniciales, especialmente en entornos de desarrollo y pruebas, porque para probar ciertas funcionalidades del sistema, es necesario contar con datos de prueba. Es ahí donde entran los seeders, son aquellos archivos encargados de insertar registros directamente en la base de datos.
 
-# Características
+La forma tradicional de insertar estos registros es creando para cada tabla un archivo diferente con la fecha de creación incluida en el nombre del fichero, esto permite insertarlos ordenadamente. Sin embargo, este trabajo se complica cuando se tienen registros referenciados, haciendo mas dificil la creación de estos.
 
-- Inserta una **lista** de registros.
-- Soporta registros **anidados**.
+Esta librería permite crear registros utilizando instancias de modelos Sequelize. Utiliza un sistema de inserción de datos secuencial, con la que es posible detectar automáticamente las relaciones entre las tablas y crear los registros de manera ordenada incluso haciendo uso de un solo fichero.
+
+## Características
+
+- Puede insertar un conjunto de registros **anidados**.
 - Soporta modelos definidos con **esquemas**.
 - Las claves primarias son opcionales siempre y cuando sean **autoincrementables**.
 - La inserción es **secuencial**, por lo tanto, al insertar el segundo
@@ -17,16 +20,19 @@ Para instalar sobre un proyecto, ejecutar el siguiente comando:
 
 $ `npm install --save seed-creator`
 
-# Ejemplos
+## Ejemplo
 
-## Ejemplo 1
-
-Inserta datos anidados.
+Inserción de registros en las tablas relacionadas `libro` y `autor`, desde un solo fichero.
 
 ``` js
 const Seed = require('seed-creator')
 
-Seed.create(sequelize.models.libro, [
+const LIBRO = sequelize.define('libro', { .. })
+const AUTOR = sequelize.define('autor', { .. })
+
+LIBRO.belongsTo(AUTOR, { as: 'autor', foreignKey: { name: 'fid_autor', targetKey: 'id_autor' } })
+
+Seed.create(LIBRO, [
   {
     titulo : 'El gato negro',
     precio : 11.99,
