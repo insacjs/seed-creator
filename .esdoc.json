@@ -14,7 +14,7 @@
         "brand": {
           "title": "Seed Creator",
           "description": "Inserta registros en la base de datos, utilizando Sequelize.",
-          "repository": "https://github.com/waquispe/seed-creator"
+          "repository": "https://github.com/insacjs/seed-creator"
         }
       }
     }

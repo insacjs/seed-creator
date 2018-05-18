@@ -10,10 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waquispe/seed-creator.git"
+    "url": "git+https://github.com/insacjs/seed-creator.git"
   },
   "keywords": [
     "insac",
+    "insacjs",
     "sequelize",
     "seed",
     "web",
@@ -22,9 +23,9 @@
   "author": "Wilmer Alex Quispe Quispe <q.wilmer.alex@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/waquispe/seed-creator/issues"
+    "url": "https://github.com/insacjs/seed-creator/issues"
   },
-  "homepage": "https://github.com/waquispe/seed-creator#readme",
+  "homepage": "https://github.com/insacjs/seed-creator#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "esdoc": "^1.0.4",
