@@ -35,27 +35,34 @@ describe('\n - Clase: Seed\n', () => {
       sequelize.models.autor.associate(sequelize.models)
       sequelize.models.libro.associate(sequelize.models)
 
-      sequelize.sync({ force: true }).then(result => {
-        Seed.create(sequelize.models.libro, [
-          {
-            titulo : 'El gato negro',
-            precio : 11.99,
-            autor  : {
-              id_autor : 10,
-              nombre   : 'Edgar Allan Poe'
-            }
-          },
-          {
-            titulo    : 'El cuervo',
-            precio    : 15.99,
-            fid_autor : 10
-          }
-        ]).then(result => {
-          expect(true).to.equal(true)
-          setTimeout(() => { process.exit(0) }, 200)
-        }).catch(err => {
-          console.log(err)
-          setTimeout(() => { process.exit(0) }, 200)
+      const options = { schemas: ['uno', 'dos'] }
+      sequelize.dropAllSchemas().then(r => {
+        sequelize.createSchema('uno').then(s => {
+          sequelize.createSchema('dos').then(t => {
+            sequelize.sync({ force: true }).then(result => {
+              Seed.create(sequelize.models.libro, [
+                {
+                  titulo : 'El gato negro',
+                  precio : 11.99,
+                  autor  : {
+                    id_autor : 10,
+                    nombre   : 'Edgar Allan Poe'
+                  }
+                },
+                {
+                  titulo    : 'El cuervo',
+                  precio    : 15.99,
+                  fid_autor : 10
+                }
+              ], options).then(result => {
+                expect(true).to.equal(true)
+                setTimeout(() => { process.exit(0) }, 200)
+              }).catch(err => {
+                console.log(err)
+                setTimeout(() => { process.exit(0) }, 200)
+              })
+            })
+          })
         })
       })
     })

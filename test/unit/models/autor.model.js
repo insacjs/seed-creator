@@ -8,6 +8,8 @@ module.exports = (sequelize, Sequelize) => {
     nombre   : Sequelize.STRING(),
     ci       : Sequelize.INTEGER(),
     telefono : Sequelize.INTEGER()
+  }, {
+    schema: 'uno'
   })
 
   MODEL.associate = (models) => {

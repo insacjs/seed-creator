@@ -7,6 +7,8 @@ module.exports = (sequelize, Sequelize) => {
     },
     titulo : Sequelize.STRING(),
     precio : Sequelize.FLOAT()
+  }, {
+    schema: 'dos'
   })
 
   MODEL.associate = (models) => {
