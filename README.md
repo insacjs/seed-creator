@@ -13,8 +13,9 @@ Esta librería permite crear registros utilizando instancias de modelos Sequeliz
 - Las claves primarias son opcionales siempre y cuando sean **autoincrementables**.
 - La inserción es **secuencial**, por lo tanto, al insertar el segundo
   segistro es posible enviar los resultados del primer registro.
+- Se puede **restringir** la inserción de registros mediante los esquemas.
 
-# Instalación
+## Instalación
 
 Para instalar sobre un proyecto, ejecutar el siguiente comando:
 
@@ -27,10 +28,12 @@ Inserción de registros en las tablas relacionadas `libro` y `autor`, desde un s
 ``` js
 const Seed = require('seed-creator')
 
-const LIBRO = sequelize.define('libro', { .. })
-const AUTOR = sequelize.define('autor', { .. })
+const LIBRO = sequelize.define('libro', { ... }, { schema: 'uno' })
+const AUTOR = sequelize.define('autor', { ... }, { schema: 'dos' })
 
 LIBRO.belongsTo(AUTOR, { as: 'autor', foreignKey: { name: 'fid_autor', targetKey: 'id_autor' } })
+
+const options = { schemas: ['uno', 'dos'] }
 
 Seed.create(LIBRO, [
   {
@@ -46,5 +49,5 @@ Seed.create(LIBRO, [
     precio    : 15.99,
     fid_autor : 10
   }
-])
+], options)
 ```
