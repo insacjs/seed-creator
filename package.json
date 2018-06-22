@@ -1,6 +1,6 @@
 {
   "name": "seed-creator",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Inserta registros en la base de datos, utilizando Sequelize.",
   "main": "index.js",
   "scripts": {
