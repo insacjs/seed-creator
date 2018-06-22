@@ -5,16 +5,12 @@ module.exports = (sequelize, Sequelize) => {
       primaryKey    : true,
       autoIncrement : true
     },
-    nombre   : Sequelize.STRING(),
-    ci       : Sequelize.INTEGER(),
-    telefono : Sequelize.INTEGER()
+    nombre : Sequelize.STRING(),
+    ci     : Sequelize.INTEGER(),
+    tipo   : Sequelize.ENUM(['NACIONAL', 'INTERNACIONAL'])
   }, {
     schema: 'uno'
   })
-
-  MODEL.associate = (models) => {
-    models.autor.hasMany(models.libro, { as: 'libros', foreignKey: { name: 'fid_autor' } })
-  }
 
   return MODEL
 }

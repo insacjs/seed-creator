@@ -5,17 +5,20 @@ module.exports = (sequelize, Sequelize) => {
       primaryKey    : true,
       autoIncrement : true
     },
-    titulo : Sequelize.STRING(),
-    precio : Sequelize.FLOAT()
+    titulo      : Sequelize.STRING(),
+    precio      : Sequelize.FLOAT(),
+    descripcion : Sequelize.TEXT(),
+    estado      : Sequelize.BOOLEAN()
   }, {
     schema: 'dos'
   })
 
   MODEL.associate = (models) => {
-    models.libro.belongsTo(models.autor, {
-      as         : 'autor',
-      foreignKey : { name: 'fid_autor', targetKey: 'id_autor', allowNull: false }
-    })
+    const LIBRO = models.libro
+    const AUTOR = models.autor
+
+    LIBRO.belongsTo(AUTOR, { as: 'autor',  foreignKey: { name: 'fid_autor', targetKey: 'id_autor', allowNull: false } })
+    AUTOR.hasMany(LIBRO,   { as: 'libros', foreignKey: { name: 'fid_autor' } })
   }
 
   return MODEL
