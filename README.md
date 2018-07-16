@@ -14,6 +14,7 @@ Esta librería permite crear registros utilizando instancias de modelos Sequeliz
 - La inserción es **secuencial**, por lo tanto, al insertar el segundo
   segistro es posible enviar los resultados del primer registro.
 - Se puede **restringir** la inserción de registros mediante los esquemas.
+- Si los registros tienen definido la clave primaria y no contienen asociaciones, se insertan en conjunto con el método **bulkCreate**.
 
 ## Instalación
 
