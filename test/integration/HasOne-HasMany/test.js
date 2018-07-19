@@ -84,7 +84,7 @@ describe('\n - Función create con registros anidados [HasOne, HasMany]', () => 
   it('Prueba con el dialecto sqlite', async () => {
     const PARAMS    =  _.cloneDeep(DB_CONFIG.params)
     PARAMS.dialect  = 'sqlite'
-    PARAMS.storage  = 'seed_creator_test.sqlite'
+    PARAMS.storage  = 'seed_creator_test'
     const DB_NAME   = 'null'
     const DB_USER   = 'null'
     const DB_PASS   = 'null'
@@ -94,9 +94,10 @@ describe('\n - Función create con registros anidados [HasOne, HasMany]', () => 
 })
 
 async function _test (DB_NAME, DB_USER, DB_PASS, DB_PARAMS) {
-  const sequelize1 = await createDatabase(`${DB_NAME}_1`, DB_USER, DB_PASS, _.cloneDeep(_.merge(DB_PARAMS, { storage: `${DB_PARAMS.storage}_1` })))
-  const sequelize2 = await createDatabase(`${DB_NAME}_2`, DB_USER, DB_PASS, _.cloneDeep(_.merge(DB_PARAMS, { storage: `${DB_PARAMS.storage}_2` })))
-  const sequelize3 = await createDatabase(`${DB_NAME}_3`, DB_USER, DB_PASS, _.cloneDeep(_.merge(DB_PARAMS, { storage: `${DB_PARAMS.storage}_3` })))
+  const STORAGE = DB_PARAMS.storage
+  const sequelize1 = await createDatabase(`${DB_NAME}_1`, DB_USER, DB_PASS, _.cloneDeep(_.merge(DB_PARAMS, { storage: `${STORAGE}_1.sqlite` })))
+  const sequelize2 = await createDatabase(`${DB_NAME}_2`, DB_USER, DB_PASS, _.cloneDeep(_.merge(DB_PARAMS, { storage: `${STORAGE}_2.sqlite` })))
+  const sequelize3 = await createDatabase(`${DB_NAME}_3`, DB_USER, DB_PASS, _.cloneDeep(_.merge(DB_PARAMS, { storage: `${STORAGE}_3.sqlite` })))
   const PERSONAS  = require(path.resolve(__dirname, 'seeds/persona.seed.js'))()
   const USUARIOS  = require(path.resolve(__dirname, 'seeds/usuario.seed.js'))()
   const ROLES     = require(path.resolve(__dirname, 'seeds/rol.seed.js'))()
