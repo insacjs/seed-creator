@@ -1,5 +1,5 @@
 --ui bdd
 --reporter spec
 --require test/helpers
---slow 5000
---timeout 15000
+--slow 30000
+--timeout 60000

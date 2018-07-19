@@ -23,44 +23,8 @@ const DB_CONFIG = {
   }
 }
 
-const DATA = [
-  {
-    titulo      : 'El gato negro',
-    precio      : 11.99,
-    descripcion : 'Cuento de terror',
-    estado      : true,
-    autor       : {
-      id_autor : 10,
-      nombre   : 'Edgar Allan Poe',
-      ci       : 111111,
-      tipo     : 'NACIONAL',
-      telefono : [ '22464756', '78675867' ]
-    }
-  },
-  {
-    titulo    : 'El cuervo',
-    precio    : 15.99,
-    fid_autor : 10
-  },
-  {
-    titulo : 'Juego de tronos',
-    precio : 49.50,
-    tipo   : 'INTERNACIONAL',
-    autor  : {
-      nombre   : 'George R. Martin',
-      ci       : 222222,
-      telefono : [ '22464756', '78675867' ]
-    }
-  }
-]
-
-const AUTORES = [
-  { id_autor: 100, nombre: 'George R. Martin', ci: 222222, telefono: [ '22464756', '78675867' ] },
-  { id_autor: 200, nombre: 'George R. Martin', ci: 222222, telefono: [ '22464756', '78675867' ] },
-  { id_autor: 300, nombre: 'George R. Martin', ci: 222222, telefono: [ '22464756', '78675867' ] },
-  { id_autor: 400, nombre: 'George R. Martin', ci: 222222, telefono: [ '22464756', '78675867' ] },
-  { id_autor: 500, nombre: 'George R. Martin', ci: 222222, telefono: [ '22464756', '78675867' ] }
-]
+const LIBROS  = require(path.resolve(__dirname, 'seeds/libro.seed.js'))()
+const AUTORES = require(path.resolve(__dirname, 'seeds/autor.seed.js'))()
 
 /**
 * Crea la base de datos.
@@ -91,7 +55,7 @@ async function createDatabase (DATABASE, USERNAME, PASSWORD, PARAMS) {
   return sequelize
 }
 
-describe('\n - Clase Seed', () => {
+describe('\n - Función create con registros anidados [BelongsTo]', () => {
   it('Prueba con el dialecto postgres', async () => {
     const PARAMS    =  _.cloneDeep(DB_CONFIG.params)
     PARAMS.dialect  = 'postgres'
@@ -101,7 +65,7 @@ describe('\n - Clase Seed', () => {
     const DB_PASS   = '12345678'
     const DB_PARAMS = PARAMS
     const sequelize = await createDatabase(DB_NAME, DB_USER, DB_PASS, DB_PARAMS)
-    await Seed.create(sequelize.models.libro, _.cloneDeep(DATA), { schemas: ['uno', 'dos'] })
+    await Seed.create(sequelize.models.libro, _.cloneDeep(LIBROS), { schemas: ['uno', 'dos'] })
     await Seed.create(sequelize.models.autor, _.cloneDeep(AUTORES), { schemas: ['uno', 'dos'] })
     expect(true).to.equal(true)
     await sequelize.close()
@@ -115,7 +79,7 @@ describe('\n - Clase Seed', () => {
     const DB_PASS   = '12345678'
     const DB_PARAMS = PARAMS
     const sequelize = await createDatabase(DB_NAME, DB_USER, DB_PASS, DB_PARAMS)
-    await Seed.create(sequelize.models.libro, _.cloneDeep(DATA), { schemas: ['uno', 'dos'] })
+    await Seed.create(sequelize.models.libro, _.cloneDeep(LIBROS), { schemas: ['uno', 'dos'] })
     await Seed.create(sequelize.models.autor, _.cloneDeep(AUTORES), { schemas: ['uno', 'dos'] })
     expect(true).to.equal(true)
     await sequelize.close()
@@ -129,7 +93,7 @@ describe('\n - Clase Seed', () => {
     const DB_PASS   = 'Abc123456*'
     const DB_PARAMS = PARAMS
     const sequelize = await createDatabase(DB_NAME, DB_USER, DB_PASS, DB_PARAMS)
-    await Seed.create(sequelize.models.libro, _.cloneDeep(DATA), { schemas: ['uno', 'dos'] })
+    await Seed.create(sequelize.models.libro, _.cloneDeep(LIBROS), { schemas: ['uno', 'dos'] })
     await Seed.create(sequelize.models.autor, _.cloneDeep(AUTORES), { schemas: ['uno', 'dos'] })
     expect(true).to.equal(true)
     await sequelize.close()
@@ -143,7 +107,7 @@ describe('\n - Clase Seed', () => {
     const DB_PASS   = 'null'
     const DB_PARAMS = PARAMS
     const sequelize = await createDatabase(DB_NAME, DB_USER, DB_PASS, DB_PARAMS)
-    await Seed.create(sequelize.models.libro, _.cloneDeep(DATA), { schemas: ['uno', 'dos'] })
+    await Seed.create(sequelize.models.libro, _.cloneDeep(LIBROS), { schemas: ['uno', 'dos'] })
     await Seed.create(sequelize.models.autor, _.cloneDeep(AUTORES), { schemas: ['uno', 'dos'] })
     expect(true).to.equal(true)
     await sequelize.close()
