@@ -18,8 +18,7 @@ const DB_CONFIG = {
       underscored     : true,
       freezeTableName : true,
       timestamps      : false
-    },
-    operatorsAliases: false
+    }
   }
 }
 
@@ -62,7 +61,7 @@ describe('\n - Función create con registros anidados [BelongsTo]', () => {
     PARAMS.port     = '5432'
     const DB_NAME   = 'seed_creator_test'
     const DB_USER   = 'postgres'
-    const DB_PASS   = '12345678'
+    const DB_PASS   = 'postgres'
     const DB_PARAMS = PARAMS
     const sequelize = await createDatabase(DB_NAME, DB_USER, DB_PASS, DB_PARAMS)
     await Seed.create(sequelize.models.libro, _.cloneDeep(LIBROS), { schemas: ['uno', 'dos'] })

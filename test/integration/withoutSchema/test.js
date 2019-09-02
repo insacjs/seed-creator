@@ -43,13 +43,11 @@ async function createDatabase (DATABASE, USERNAME, PASSWORD, PARAMS) {
       await sequelizeTMP.query(`CREATE DATABASE ${DATABASE}`).then(() => { sequelizeTMP.close() })
     } else { throw e }
   }
-  await sequelize.dropSchema('auth', { force: true })
-  await sequelize.createSchema('auth')
   await sequelize.sync({ force: true })
   return sequelize
 }
 
-describe('\n - Función create con registros anidados [HasOne, HasMany]', () => {
+describe('\n - Función create con registros anidados [Without Schemas]', () => {
   it('Prueba con el dialecto postgres', async () => {
     const PARAMS    =  _.cloneDeep(DB_CONFIG.params)
     PARAMS.dialect  = 'postgres'
@@ -100,9 +98,9 @@ async function _test (DB_NAME, DB_USER, DB_PASS, DB_PARAMS) {
   const PERSONAS  = require(path.resolve(__dirname, 'seeds/persona.seed.js'))()
   const USUARIOS  = require(path.resolve(__dirname, 'seeds/usuario.seed.js'))()
   const ROLES     = require(path.resolve(__dirname, 'seeds/rol.seed.js'))()
-  await Seed.create(sequelize1.models.persona, _.cloneDeep(PERSONAS), { schemas: ['auth'] })
-  await Seed.create(sequelize2.models.usuario, _.cloneDeep(USUARIOS), { schemas: ['auth'] })
-  await Seed.create(sequelize3.models.rol,     _.cloneDeep(ROLES),    { schemas: ['auth'] })
+  await Seed.create(sequelize1.models.persona, _.cloneDeep(PERSONAS))
+  await Seed.create(sequelize2.models.usuario, _.cloneDeep(USUARIOS))
+  await Seed.create(sequelize3.models.rol,     _.cloneDeep(ROLES))
   expect(await sequelize1.models.persona.count()).to.equal(PERSONAS.length)
   expect(await sequelize2.models.persona.count()).to.equal(PERSONAS.length)
   expect(await sequelize3.models.persona.count()).to.equal(PERSONAS.length)

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha --recursive test",
     "doc": "./node_modules/.bin/esdoc",
-    "lint": "./node_modules/.bin/eslint ./lib"
+    "lint": "./node_modules/.bin/eslint ."
   },
   "repository": {
     "type": "git",
@@ -27,20 +27,20 @@
   },
   "homepage": "https://github.com/insacjs/seed-creator#readme",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "esdoc": "^1.0.4",
+    "chai": "^4.2.0",
+    "esdoc": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
-    "eslint": "^4.17.0",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^6.0.0",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^5.2.0",
-    "mysql2": "^1.5.3",
-    "pg": "^7.4.1",
-    "sequelize": "^4.32.7",
-    "sqlite3": "^4.0.0",
-    "tedious": "2.2.4"
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^6.2.0",
+    "mysql2": "^1.7.0",
+    "pg": "^7.12.1",
+    "sequelize": "^5.18.0",
+    "sqlite3": "^4.1.0",
+    "tedious": "6.3.0"
   }
 }

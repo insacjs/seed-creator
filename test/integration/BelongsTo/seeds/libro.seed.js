@@ -10,7 +10,7 @@ module.exports = (app) => {
         nombre   : 'Edgar Allan Poe',
         ci       : 111111,
         tipo     : 'NACIONAL',
-        telefono : [ '22464756', '78675867' ]
+        telefono : ['22464756', '78675867']
       }
     },
     {
@@ -25,7 +25,7 @@ module.exports = (app) => {
       autor  : {
         nombre   : 'George R. Martin',
         ci       : 222222,
-        telefono : [ '22464756', '78675867' ]
+        telefono : ['22464756', '78675867']
       }
     }
   ]
