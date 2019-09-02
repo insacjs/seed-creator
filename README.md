@@ -36,7 +36,7 @@ LIBRO.belongsTo(AUTOR, { as: 'autor', foreignKey: { name: 'fid_autor', targetKey
 
 const options = { schemas: ['uno', 'dos'] }
 
-Seed.create(LIBRO, [
+const resultado = await Seed.create(LIBRO, [
   {
     titulo : 'El gato negro',
     precio : 11.99,
@@ -51,4 +51,7 @@ Seed.create(LIBRO, [
     fid_autor : 10
   }
 ], options)
+
+// Ejemplo de resultado:
+// { entries: 16, elapsedTime: 0.087 }
 ```
